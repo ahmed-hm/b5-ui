@@ -1,0 +1,32 @@
+<div id="menu">
+  <div
+    *ngFor="
+      let category of [
+        'Bakery',
+        'Fruit and vegetables',
+        'Meat and fish',
+        'Drinks',
+        'Kitchen',
+        'Special nutrition',
+        'Baby',
+        'Pharmacy'
+      ]
+    "
+    class="menu-item"
+  >
+    <div class="dropdown-toggle">
+      <span class="selected">{{ category }}</span>
+      <img src="assets/icons/caret-small.svg" alt="open dropdown" />
+    </div>
+    <ul class="dropdown-menu" #dropdownMenu>
+      <li>All Categories</li>
+      <li>Books</li>
+      <li>Movies</li>
+      <li>Music</li>
+      <li>Games</li>
+      <li>Software</li>
+      <li>Hardware</li>
+      <li>Electronics</li>
+    </ul>
+  </div>
+</div>
