@@ -1,0 +1,72 @@
+@import "/src/styles.scss";
+
+#header {
+  padding: 0 45px;
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0px;
+    border-bottom: rgba(21, 21, 21, 0.05) solid 1px;
+    flex-wrap: wrap;
+
+    &__start {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-basis: 375px;
+    }
+
+    &__end {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-basis: 197px;
+    }
+
+    a {
+      color: get-color(secondary, a);
+      @include caption;
+    }
+
+    span {
+      color: get-color(primary, a);
+      @include caption;
+    }
+  }
+
+  .header-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 130px;
+
+    &__logo {
+      flex-basis: 177px;
+      margin-inline-end: auto;
+    }
+
+    &__search {
+      flex-basis: 500px;
+    }
+
+    &__info {
+      display: flex;
+      flex-basis: 177px;
+      margin-inline-start: auto;
+      justify-content: flex-end;
+
+      img {
+        margin-inline-end: 40px;
+
+        &:last-child {
+          margin-inline-end: 0;
+        }
+      }
+    }
+  }
+}
