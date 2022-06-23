@@ -1,0 +1,23 @@
+@import "/src/styles.scss";
+
+#filters {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      cursor: pointer;
+      @include body(underline);
+      color: get-color(secondary, a);
+      margin-top: 12px;
+
+      &:first-child {
+        cursor: unset;
+        @include s4;
+        color: get-color(primary, a);
+        margin-top: 0;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
