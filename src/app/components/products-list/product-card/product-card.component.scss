@@ -1,0 +1,81 @@
+@import "/src/styles.scss";
+
+#product-card {
+  padding: 16px;
+  width: 269px;
+  height: 332px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid get-color(primary, d);
+
+  .thumbnail {
+    margin-bottom: 16px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .discount {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 12px;
+      left: 12px;
+      background: get-color(secondary, e);
+      border-radius: 12px;
+    }
+  }
+
+  .title {
+    @include s5;
+    margin-bottom: 4px;
+    flex-shrink: 0;
+  }
+
+  .description {
+    @include caption;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .pricing {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+
+      .price {
+        @include s4;
+        color: get-color(primary, a);
+      }
+
+      .old-price {
+        @include s6(line-through);
+        color: get-color(primary, c);
+      }
+    }
+
+    .actions {
+      button.buy-now {
+        @include button;
+        color: get-color(primary, j);
+        background-color: get-color(secondary, a);
+        height: 36px;
+        width: 90px;
+        border: 2px solid get-color(secondary, b);
+        border-radius: 12px;
+      }
+    }
+  }
+}
