@@ -1,1 +1,219 @@
 /* You can add global styles to this file, and also import other style files */
+
+/************* Colors *************/
+$colors: (
+  primary: (
+    a: #151515,
+    b: #575757,
+    c: #a9a9a9,
+    d: #d1d1d1,
+    e: #ebebeb,
+    f: #f5f5f5,
+    h: #f9f9f9,
+    j: #ffffff,
+  ),
+  secondary: (
+    a: #6a983c,
+    b: #46760a,
+    c: #92c064,
+    d: #c8deb3,
+    e: #f4f8ec,
+  ),
+  additional-1: (
+    a: #d0a866,
+    b: #b28a48,
+    c: #ecd2a6,
+    d: #faedd8,
+    e: #fff9f0,
+  ),
+  additional-2: (
+    a: #e5704b,
+    b: #c7522d,
+    c: #eb8d70,
+    d: #f7c6b7,
+    e: #fff1ed,
+  ),
+  additional-3: (
+    a: #37d0d6,
+    b: #19b2b8,
+    c: #7cd0d3,
+    d: #b9e6e8,
+    e: #ecf6f6,
+  ),
+);
+
+@function get-color($color, $variant, $colors-map: $colors) {
+  $main-color: map-get($colors-map, $color);
+  @return map-get($main-color, $variant);
+}
+
+/************* Fonts *************/
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/OpenSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+/************* Text Styles *************/
+@mixin s1($text-decoration: none) {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 140%;
+  text-decoration: $text-decoration;
+}
+@mixin s2($text-decoration: none) {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 39px;
+  text-decoration: $text-decoration;
+}
+@mixin s3($text-decoration: none) {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  text-decoration: $text-decoration;
+}
+@mixin s4($text-decoration: none) {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-decoration: $text-decoration;
+}
+@mixin s5($text-decoration: none) {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  text-decoration: $text-decoration;
+}
+@mixin s6($text-decoration: none) {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  text-decoration: $text-decoration;
+}
+@mixin caption($text-decoration: none) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16.34px;
+  text-decoration: $text-decoration;
+}
+@mixin body($text-decoration: none) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19.07px;
+  text-decoration: $text-decoration;
+}
+@mixin lead($text-decoration: none) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 23.15px;
+  text-decoration: $text-decoration;
+}
+@mixin button($text-decoration: none) {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22.5px;
+  text-decoration: $text-decoration;
+}
+@mixin input-placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+/************* Break Points *************/
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin desktop-large {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+/************* Global Styles *************/
+body {
+  margin: 0;
+  padding-bottom: 64px;
+}
+* {
+  box-sizing: border-box;
+}
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
