@@ -1,4 +1,4 @@
-@import "/src/styles.scss";
+@import '/src/styles.scss';
 
 #header {
   padding: 0 45px;
@@ -60,11 +60,25 @@
       margin-inline-start: auto;
       justify-content: flex-end;
 
-      img {
+      &__profile {
         margin-inline-end: 40px;
+      }
 
-        &:last-child {
-          margin-inline-end: 0;
+      &__cart {
+        position: relative;
+
+        .counter {
+          position: absolute;
+          bottom: -8px;
+          left: -8px;
+          background-color: get-color(additional-2, a);
+          border-radius: 50%;
+          aspect-ratio: 1;
+          padding: 0 8px;
+          color: get-color(primary, j);
+          font-size: 12px;
+          display: inline-flex;
+          align-items: center;
         }
       }
     }

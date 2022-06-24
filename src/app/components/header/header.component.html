@@ -18,7 +18,7 @@
   <div class="header-body">
     <!-- header logo -->
     <div class="header-body__logo">
-      <img src="assets/icons/logo.svg" alt="logo">
+      <img src="assets/icons/logo.svg" alt="logo" />
     </div>
 
     <!-- header-search -->
@@ -28,8 +28,15 @@
 
     <!-- header-info -->
     <div class="header-body__info">
-      <img src="assets/icons/profile.svg" alt="profile">
-      <img src="assets/icons/cart.svg" alt="">
+      <a href="#">
+        <img class="header-body__info__profile" src="assets/icons/profile.svg" alt="profile" />
+      </a>
+      <div class="header-body__info__cart">
+        <a href="#">
+          <img src="assets/icons/cart.svg" alt="" />
+          <span class="counter">{{ cartTotalProducts$ | async }}</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
