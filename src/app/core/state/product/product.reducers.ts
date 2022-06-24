@@ -16,7 +16,6 @@ export const productInitialState: ProductsState = {
 export const productReducer = createReducer(
   productInitialState,
   on(getProductsSuccessActions, (state, { products }) => {
-    console.log('getProductsSuccess', products);
     return { ...state, products: [...state.products, ...products] };
   }),
   on(getProductsFailureActions, (state, { error }) => state),
