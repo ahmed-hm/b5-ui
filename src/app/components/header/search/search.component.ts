@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(private store: Store, private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    this.renderer.listen(window, 'click', this.clickOutsideEventListener);
+    this.renderer.listen(window, 'click', this.clickOutsideEventListener.bind(this));
 
     this.searchSubject.pipe(debounceTime(500), distinctUntilChanged()).subscribe((search) => {
       this.store.dispatch(setSearchActions({ search }));
