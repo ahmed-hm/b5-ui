@@ -1,12 +1,30 @@
+import { Renderer2 } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
+import { provideMockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchComponent } from './components/header/search/search.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ProductCardComponent } from './components/products-list/product-card/product-card.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        MenuComponent,
+        ProductCardComponent,
+        FooterComponent,
+        FiltersComponent,
+        SearchComponent,
+        ProductsListComponent
       ],
+      providers: [Store, provideMockStore(), Renderer2]
     }).compileComponents();
   });
 
@@ -20,12 +38,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('b5digital-ui-task');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('b5digital-ui-task app is running!');
   });
 });
