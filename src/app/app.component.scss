@@ -3,8 +3,7 @@
   padding: 30px 45px 0;
 
   app-filters {
-    flex-basis: 23%;
-    flex-grow: 0;
-    flex-shrink: 0;
+    flex-basis: 22%;
+    max-width: 258px;
   }
 }

@@ -1,4 +1,4 @@
-@import "/src/styles.scss";
+@import '/src/styles.scss';
 
 #product-card {
   padding: 16px;
@@ -30,6 +30,8 @@
       background: get-color(secondary, e);
       border-radius: 12px;
       padding: 0 8px;
+      @include s6;
+      color: get-color(secondary, a);
     }
   }
 
