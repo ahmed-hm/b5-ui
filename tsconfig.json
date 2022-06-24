@@ -22,8 +22,11 @@
     "paths": {
       "@assets/*": ["assets/*"],
       "@environments/*": ["environments/*"],
-      "@app/*": ["app/*"],
-      "@components/*": ["app/components/*"]
+      "@effects/*": ["app/core/effects/*"],
+      "@state/*": ["app/core/state/*"],
+      "@components/*": ["app/components/*"],
+      "@interfaces/*": ["app/shared/interfaces/*"],
+      "@services/*": ["app/shared/services/*"]
     }
   },
   "angularCompilerOptions": {
