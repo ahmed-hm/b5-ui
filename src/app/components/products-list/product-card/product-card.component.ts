@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from '@interfaces/product.interface';
+import { Store } from '@ngrx/store';
+import { addToCartAction } from '@state/cart/cart.actions';
 
 @Component({
   selector: 'app-product-card',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
+  @Input() product: Product = Object(null);
 
-  constructor() { }
+  constructor(private store: Store) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  addProductToCard(product: Product) {
+    this.store.dispatch(addToCartAction({ product }));
   }
-
 }

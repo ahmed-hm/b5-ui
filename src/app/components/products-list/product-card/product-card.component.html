@@ -1,21 +1,21 @@
 <div id="product-card">
   <div class="thumbnail">
-    <img src="assets/icons/thumbnail-placeholder.svg" alt="product-1" />
-    <div class="discount">
-      <span></span>
+    <img [src]="product.thumbnail" alt="product-1" />
+    <div class="discount" *ngIf="product.discountPercentage">
+      <span> {{ (-1 * product.discountPercentage) / 100 | percent }}</span>
     </div>
   </div>
-  <span class="title text-ellipsis">{{ "Product Title" }}</span>
-  <span class="description text-ellipsis">{{
-    "Space for a small product description "
-  }}</span>
+  <span class="title text-ellipsis">{{ product.title }}</span>
+  <span class="description text-ellipsis">{{ product.description }}</span>
   <div class="footer">
     <div class="pricing">
-      <span class="price">{{ 0.12 | number: "1.2-2" }} USD</span>
-      <span class="old-price">{{ 1.12 | number: "1.2-2" }} USD</span>
+      <span class="price">{{ product.price | number: '1.2-2' }} USD</span>
+      <span class="old-price" *ngIf="product.discountPercentage"
+        >{{ product.price / product.discountPercentage | number: '1.2-2' }} USD</span
+      >
     </div>
     <div class="actions">
-      <button class="buy-now">Buy now</button>
+      <button class="buy-now" (click)="addProductToCard(product)">Buy now</button>
     </div>
   </div>
 </div>
