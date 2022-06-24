@@ -11,7 +11,7 @@ import { Pagination } from '../interfaces/pagination.interface';
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
-  getProducts({ skip = 0, limit = 10, category, search }: { skip: number; limit: number; category?: Category; search?: string }) {
+  getProducts({ skip = 0, limit = 10, category, search }: { skip?: number; limit?: number; category?: Category; search?: string }) {
     const url = `${environment.apiUrl}/products`;
     const searchSegment = search ? '/search' : '';
     const categorySegment = category ? `/category/${category}` : '';

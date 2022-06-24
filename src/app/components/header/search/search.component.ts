@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Category } from '@interfaces/category.interface';
 import { Store } from '@ngrx/store';
 import { categoriesSelector } from '@state/category/category.selectors';
@@ -25,16 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(private store: Store, private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    this.renderer.listen(window, 'click', (event) => {
-      if (
-        this.dropdownMenu &&
-        this.dropdownToggle &&
-        !this.dropdownMenu.nativeElement.contains(event.target) &&
-        !this.dropdownToggle.nativeElement.contains(event.target)
-      ) {
-        this.isDroppedDown = false;
-      }
-    });
+    this.renderer.listen(window, 'click', this.clickOutsideEventListener);
 
     this.searchSubject.pipe(debounceTime(500), distinctUntilChanged()).subscribe((search) => {
       this.store.dispatch(setSearchActions({ search }));
@@ -59,5 +50,16 @@ export class SearchComponent implements OnInit, OnDestroy {
   onSearch(event: Event) {
     const search = (event.target as HTMLInputElement).value;
     this.searchSubject.next(search);
+  }
+
+  clickOutsideEventListener(event: Event) {
+    if (
+      this.dropdownMenu &&
+      this.dropdownToggle &&
+      !this.dropdownMenu.nativeElement.contains(event.target) &&
+      !this.dropdownToggle.nativeElement.contains(event.target)
+    ) {
+      this.isDroppedDown = false;
+    }
   }
 }
